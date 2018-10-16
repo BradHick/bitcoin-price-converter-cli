@@ -20,8 +20,15 @@ if(!arguments){
 
     res.on('end', function(){
 
+      const coins = JSON.parse(data)
+      const resp = Object.values(coins);
+
+      const teste = Object.keys(coins).map(i => {
+        return { coin: i, detail: coins[i] }
+      });
+
       console.log('====================================');
-      console.log(data);
+      console.log(teste);
       console.log('====================================');
     })
   })
