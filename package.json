@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-price-converter-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small cli to convert a value of one of the available coins into bitcoin",
   "readmeFilename": "README.md" ,
   "main": "index.js",
