@@ -11,18 +11,18 @@ npm install -g bitcoin-price-converter-cli
 ## How to use
 ...
 
-  Parameters: [Currency] [Value]
-  --- Currency: Currency abbreviation
-  --- Value: Amount
-  --- Eg: bitcoin BRL 1000
+  Parameters: [Currency] [Value] --
+    Currency: Currency abbreviation
+    Value: Amount
+    Eg: bitcoin BRL 1000
 
   If you only enter "bitcoin" in the terminal, a list with all the supported currencies and their details will be shown
 
   By entering only "bitcoin [Currency]" in the terminal, the details of that currency will be shown
-  ----Ed: bitcoin BRL
+    Ed: bitcoin BRL
 
   Use . (dot) for values ​​in currency subunits
-  ----Eg: bitcoin BRL 571.75
+    Eg: bitcoin BRL 571.75
 
   List of supported currencies: 
   USD - Dollar
@@ -46,5 +46,4 @@ npm install -g bitcoin-price-converter-cli
   SGD - Singaporean dollar
   THB - Thai Baht
   TWD - Taiwanese dollar
-  ====================================
 ...
