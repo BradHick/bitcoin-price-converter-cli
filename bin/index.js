@@ -8,11 +8,36 @@ const argArray = arguments.split(' ');
 const currency = argArray[0];
 const value = argArray[1];
 
+const translateCurrency = {
+  'USD': 'Dólar',
+  'AUD': 'Dólar australiano',
+  'BRL': 'Real brasileiro',
+  'CAD': 'Dólar canadense',
+  'CHF': 'Franco suiço',
+  'CLP': 'Peso chileno',
+  'CNY': 'China Yuan/Renminbi',
+  'DKK': 'Coroa dinamarquesa',
+  'EUR': 'Euro',
+  'GBP': 'Libra esterlina',
+  'HKD': 'Dolar Honkongense',
+  'INR': 'India Rupee',
+  'ISK': 'Dinar iraquiano',
+  'JPY': 'Iene japonês',
+  'KRW': 'Won sul-coreano',
+  'NZD': 'Dólar neozelandês',
+  'PLN': 'Zloty polonês',
+  'RUB': 'Rublo russo',
+  'SEK': 'Coroa sueca',
+  'SGD': 'Dólar cingapurense',
+  'THB': 'Baht tailandês',
+  'TWD': 'Dólar taiwanês'
+}
+
 
 if(!arguments){
   https
   .get('https://blockchain.info/ticker', function(res){
-    var data = ''
+    let data = ''
 
     res.on('data', function(newData){
       data += newData
@@ -21,15 +46,27 @@ if(!arguments){
     res.on('end', function(){
 
       const coins = JSON.parse(data)
-      const resp = Object.values(coins);
+      const coinsKeys = Object.keys(coins);
+      const coinsValues = Object.values(coins);
 
-      const teste = Object.keys(coins).map(i => {
-        return { coin: i, detail: coins[i] }
+      const coinsObj = Object.keys(coins).map(i => {
+        return { currency: i, details: coins[i] }
       });
 
-      console.log('====================================');
-      console.log(teste);
-      console.log('====================================');
+      console.log('================ Valores de todas as moedas suportadas   ====================');
+      console.log();
+      coinsObj.forEach(item => {
+        console.log(`Moeda: ${translateCurrency[item.currency]} - Símbolo: ${item.details.symbol}`);
+        console.log('-------');
+        console.log(`Última valor registrado: ${item.details.last}`);
+        console.log(`Valor da última venda: ${item.details.sell}`);
+        console.log(`Valor da última compra: ${item.details.buy}`);
+        console.log('-------');
+        console.log();
+        console.log();
+      });
+      console.log();
+      console.log('=============================================================================');
     })
   })
 }
