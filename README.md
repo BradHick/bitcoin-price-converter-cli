@@ -10,7 +10,6 @@ npm install -g bitcoin-price-converter-cli
 
 ## How to use
 ...
-  =========== Help bitcoin-price-converter =============
 
   Parameters: [Currency] [Value]
   --- Currency: Currency abbreviation
@@ -25,7 +24,6 @@ npm install -g bitcoin-price-converter-cli
   Use . (dot) for values ​​in currency subunits
   ----Eg: bitcoin BRL 571.75
 
-  ====================================
   List of supported currencies: 
   USD - Dollar
   AUD - Australian dollar
