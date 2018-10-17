@@ -2,6 +2,8 @@
 
 bitcoin-price-converter-cli is a simple CLI to convert currencies in bitcoin and track the diferent quotations of bitcoin
 
+See in [npm site](https://www.npmjs.com/package/bitcoin-price-converter-cli "bitcoin-price-converter-cli npm page")
+
 ## How to install
 
 ```
