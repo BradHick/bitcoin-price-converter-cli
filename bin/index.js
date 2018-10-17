@@ -56,7 +56,7 @@ if(!arguments){
       console.log('================ Valores de todas as moedas suportadas   ====================');
       console.log();
       coinsObj.forEach(item => {
-        console.log(`Moeda: ${translateCurrency[item.currency]} - Símbolo: ${item.details.symbol}`);
+        console.log(`Moeda: ${translateCurrency[item.currency.toUpperCase()]} - Símbolo: ${item.details.symbol}`);
         console.log('-------');
         console.log(`Última valor registrado: ${item.details.last}`);
         console.log(`Valor da última venda: ${item.details.sell}`);
@@ -71,7 +71,48 @@ if(!arguments){
   });
 }
 
-if(translateCurrency[currency]){
+if(arguments === '--help'){
+  console.log('=========== Ajuda bitcoin-price converter =============');
+  console.log();
+  console.log('Parâmetros: [Currency] [Value]');
+  console.log('--- Currency: Abreviatura da moeda');
+  console.log('--- Value: Valor desejado');
+  console.log('--- Ex: bitcoin BRL 1000');
+  console.log();
+  console.log('Ao se digitar apenas "bitcoin" no terminal, será mostrada uma lista com todas as moedas suportadas e seus detalhes');
+  console.log();
+  console.log('Ao se digitar apenas "bitcoin [Currency]" no terminal, será mostrado os detalhes daquela moeda');
+  console.log('----Ex: bitcoin BRL');
+  console.log();
+  console.log('====================================');
+  console.log('Lista de moedas suportadas: ');
+  console.log('USD - Dólar',);
+  console.log('AUD - Dólar australiano',);
+  console.log('BRL - Real brasileiro',);
+  console.log('CAD - Dólar canadense',);
+  console.log('CHF - Franco suiço',);
+  console.log('CLP - Peso chileno',);
+  console.log('CNY - China Yuan/Renminbi',);
+  console.log('DKK - Coroa dinamarquesa',);
+  console.log('EUR - Euro',);
+  console.log('GBP - Libra esterlina',);
+  console.log('HKD - Dolar Honkongense',);
+  console.log('INR - India Rupee',);
+  console.log('ISK - Dinar iraquiano',);
+  console.log('JPY - Iene japonês',);
+  console.log('KRW - Won sul-coreano',);
+  console.log('NZD - Dólar neozelandês',);
+  console.log('PLN - Zloty polonês',);
+  console.log('RUB - Rublo russo',);
+  console.log('SEK - Coroa sueca',);
+  console.log('SGD - Dólar cingapurense',);
+  console.log('THB - Baht tailandês',);
+  console.log('TWD - Dólar taiwanês');
+  console.log('====================================');
+  
+};
+
+if(translateCurrency[currency.toUpperCase()]){
   if(!value){
     https
       .get('https://blockchain.info/ticker', function(res){
