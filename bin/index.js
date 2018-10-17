@@ -44,8 +44,6 @@ if(!arguments){
     res.on('end', function(){
 
       const coins = JSON.parse(data)
-      const coinsKeys = Object.keys(coins);
-      const coinsValues = Object.values(coins);
 
       const coinsObj = Object.keys(coins).map(i => {
         return { currency: i, details: coins[i] }
@@ -129,9 +127,6 @@ if(translateCurrency[currency.toUpperCase()]){
           const index = coinsKeys.indexOf(currency);
           const coinsValues = Object.values(coins);
 
-          const coinsObj = Object.keys(coins).map(i => {
-            return { currency: i, details: coins[i] }
-          });
 
           console.log("\x1b[32m" ,'================ Amount of selected currency ====================');
           console.log();
