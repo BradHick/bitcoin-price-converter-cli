@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 const https = require('https');
-const querystring = require('querystring');
 
 const arguments = process.argv.splice(2, process.argv.length -1).join(' ')
 const argArray = arguments.split(' ');
@@ -9,28 +8,27 @@ const currency = argArray[0].toUpperCase();
 const value = argArray[1];
 
 const translateCurrency = {
-  'USD': 'Dólar',
-  'AUD': 'Dólar australiano',
-  'BRL': 'Real brasileiro',
-  'CAD': 'Dólar canadense',
-  'CHF': 'Franco suiço',
-  'CLP': 'Peso chileno',
-  'CNY': 'China Yuan/Renminbi',
-  'DKK': 'Coroa dinamarquesa',
+  'USD': 'Dollar',
+  'AUD': 'Australian dollar',
+  'BRL': 'Brazilian Real',
+  'CAD': 'Canadian dollar',
+  'CLP': 'Chilean peso',
+  'CNY': 'China Yuan / Renminbi',
+  'DKK': 'Danish krone',
   'EUR': 'Euro',
-  'GBP': 'Libra esterlina',
+  'GBP': 'Pound sterling',
   'HKD': 'Dolar Honkongense',
   'INR': 'India Rupee',
-  'ISK': 'Dinar iraquiano',
-  'JPY': 'Iene japonês',
-  'KRW': 'Won sul-coreano',
-  'NZD': 'Dólar neozelandês',
-  'PLN': 'Zloty polonês',
-  'RUB': 'Rublo russo',
-  'SEK': 'Coroa sueca',
-  'SGD': 'Dólar cingapurense',
-  'THB': 'Baht tailandês',
-  'TWD': 'Dólar taiwanês'
+  'ISK': 'Iraqi Dinar',
+  'JPY': 'Japanese yen',
+  'KRW': 'Won South Korean',
+  'NZD': 'New Zealand Dollar',
+  'PLN': 'Polish Zloty',
+  'RUB': 'Russian Ruble',
+  'SEK': 'Swedish krona',
+  'SGD': 'Singaporean dollar',
+  'THB': 'Thai Baht',
+  'TWD': 'Taiwanese dollar'
 }
 
 
@@ -53,61 +51,60 @@ if(!arguments){
         return { currency: i, details: coins[i] }
       });
 
-      console.log('================ Valores de todas as moedas suportadas   ====================');
+      console.log("\x1b[36m", '================ Amounts of all supported currencies ====================');
       console.log();
       coinsObj.forEach(item => {
-        console.log(`Moeda: ${translateCurrency[item.currency.toUpperCase()]} - Símbolo: ${item.details.symbol}`);
+        console.log(`Currency: ${translateCurrency[item.currency.toUpperCase()]} - Symbol: ${item.details.symbol}`);
         console.log('-------');
-        console.log(`Última valor registrado: ${item.details.last}`);
-        console.log(`Valor da última venda: ${item.details.sell}`);
-        console.log(`Valor da última compra: ${item.details.buy}`);
+        console.log(`Last value recorded: ${item.details.last}`);
+        console.log(`Last sale value: ${item.details.sell}`);
+        console.log(`Last buy value: ${item.details.buy}`);
         console.log('-------');
         console.log();
         console.log();
       });
       console.log();
-      console.log('=============================================================================');
+      console.log('====================================================================================');
     });
   });
 }
 
 if(arguments === '--help'){
-  console.log('=========== Ajuda bitcoin-price converter =============');
+  console.log('=========== Help bitcoin-price-converter =============');
   console.log();
-  console.log('Parâmetros: [Currency] [Value]');
-  console.log('--- Currency: Abreviatura da moeda');
-  console.log('--- Value: Valor desejado');
-  console.log('--- Ex: bitcoin BRL 1000');
+  console.log('Parameters: [Currency] [Value]');
+  console.log('--- Currency: Currency abbreviation');
+  console.log('--- Value: Amount');
+  console.log('--- Eg: bitcoin BRL 1000');
   console.log();
-  console.log('Ao se digitar apenas "bitcoin" no terminal, será mostrada uma lista com todas as moedas suportadas e seus detalhes');
+  console.log('If you only enter "bitcoin" in the terminal, a list with all the supported currencies and their details will be shown');
   console.log();
-  console.log('Ao se digitar apenas "bitcoin [Currency]" no terminal, será mostrado os detalhes daquela moeda');
-  console.log('----Ex: bitcoin BRL');
+  console.log('By entering only "bitcoin [Currency]" in the terminal, the details of that currency will be shown');
+  console.log('----Ed: bitcoin BRL');
   console.log();
   console.log('====================================');
-  console.log('Lista de moedas suportadas: ');
-  console.log('USD - Dólar',);
-  console.log('AUD - Dólar australiano',);
-  console.log('BRL - Real brasileiro',);
-  console.log('CAD - Dólar canadense',);
-  console.log('CHF - Franco suiço',);
-  console.log('CLP - Peso chileno',);
-  console.log('CNY - China Yuan/Renminbi',);
-  console.log('DKK - Coroa dinamarquesa',);
-  console.log('EUR - Euro',);
-  console.log('GBP - Libra esterlina',);
-  console.log('HKD - Dolar Honkongense',);
-  console.log('INR - India Rupee',);
-  console.log('ISK - Dinar iraquiano',);
-  console.log('JPY - Iene japonês',);
-  console.log('KRW - Won sul-coreano',);
-  console.log('NZD - Dólar neozelandês',);
-  console.log('PLN - Zloty polonês',);
-  console.log('RUB - Rublo russo',);
-  console.log('SEK - Coroa sueca',);
-  console.log('SGD - Dólar cingapurense',);
-  console.log('THB - Baht tailandês',);
-  console.log('TWD - Dólar taiwanês');
+  console.log('List of supported currencies: ');
+  console.log('USD - Dollar');
+  console.log('AUD - Australian dollar');
+  console.log('BRL - Brazilian Real');
+  console.log('CAD - Canadian dollar');
+  console.log('CLP - Chilean peso');
+  console.log('CNY - China Yuan / Renminbi');
+  console.log('DKK - Danish krone');
+  console.log('EUR - Euro');
+  console.log('GBP - Pound sterling');
+  console.log('HKD - Dolar Honkongense');
+  console.log('INR - India Rupee');
+  console.log('ISK - Iraqi Dinar');
+  console.log('JPY - Japanese yen');
+  console.log('KRW - Won South Korean');
+  console.log('NZD - New Zealand Dollar');
+  console.log('PLN - Polish Zloty');
+  console.log('RUB - Russian Ruble');
+  console.log('SEK - Swedish krona');
+  console.log('SGD - Singaporean dollar');
+  console.log('THB - Thai Baht');
+  console.log('TWD - Taiwanese dollar');
   console.log('====================================');
   
 };
@@ -133,17 +130,17 @@ if(translateCurrency[currency.toUpperCase()]){
             return { currency: i, details: coins[i] }
           });
 
-          console.log('================ Valores da moeda ====================');
+          console.log("\x1b[32m" ,'================ Amount of selected currency ====================');
           console.log();
           const item = coinsValues[index];
-          console.log(`Moeda: ${translateCurrency[currency.toUpperCase()]} - Símbolo: ${item.symbol}`);
+          console.log(`Currency: ${translateCurrency[currency.toUpperCase()]} - Symbol: ${item.symbol}`);
           console.log('-------');
-          console.log(`Última valor registrado: ${item.last}`);
-          console.log(`Valor da última venda: ${item.sell}`);
-          console.log(`Valor da última compra: ${item.buy}`);
+          console.log(`Last value recorded: ${item.last}`);
+          console.log(`Last sale value: ${item.sell}`);
+          console.log(`Last buy value: ${item.buy}`);
           console.log('-------');
           console.log();
-          console.log('=======================================================');
+          console.log("\x1b[32m" ,'================================================================');
         });
       });
   };
@@ -159,11 +156,15 @@ if(translateCurrency[currency.toUpperCase()]){
   
           res.on('end', function(){
             console.log()
-            console.log('================ Valor em Bitcoin ====================');
+            console.log("\x1b[32m" ,'================ Valor em Bitcoin ====================');
             console.log(data);
             console.log('======================================================');
             console.log()
           });
         });
   };
-}
+};
+
+if(currency && !translateCurrency[currency.toUpperCase()] && (arguments !== '--help')){
+  console.error("\x1b[31m", 'Invalid parameters, if in doubt, type bitcoin --help');
+};
