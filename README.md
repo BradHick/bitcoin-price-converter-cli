@@ -14,7 +14,10 @@ npm install -g bitcoin-price-converter-cli
   Parameters: [Currency] [Value]
   * Currency: Currency abbreviation
   * Value: Amount
-  * -- Eg: `bitcoin BRL 1000`
+  * Eg:
+    ```
+    bitcoin BRL 1000
+    ```
   
   
 
@@ -23,12 +26,18 @@ npm install -g bitcoin-price-converter-cli
 
 
   By entering only "bitcoin [Currency]" in the terminal, the details of that currency will be shown
-  * -- Eg: `bitcoin BRL`
+  * Eg:
+    ```
+    bitcoin USD
+    ```
 
 
 
   Use . (dot) for values in currency subunits
-  * -- Eg: `bitcoin BRL 571.75`
+  * Eg:
+    ```
+    bitcoin BRL 1123.45
+    ```
   
   
   ---
