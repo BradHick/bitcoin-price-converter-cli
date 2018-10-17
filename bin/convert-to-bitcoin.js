@@ -11,9 +11,9 @@ module.exports = (currency, value) => {
   
           res.on('end', function(){
             console.log()
-            console.log("\x1b[32m" ,'================ Value in Bitcoin ====================');
+            console.log("\x1b[32m",'================ Value in Bitcoin ====================');
             console.log(data);
-            console.log('======================================================');
+            console.log('=======================================================');
             console.log()
           });
         });
