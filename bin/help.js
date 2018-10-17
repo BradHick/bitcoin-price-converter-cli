@@ -9,7 +9,7 @@ module.exports = () => {
   console.log('If you only enter "bitcoin" in the terminal, a list with all the supported currencies and their details will be shown');
   console.log();
   console.log('By entering only "bitcoin [Currency]" in the terminal, the details of that currency will be shown');
-  console.log('----Ed: bitcoin BRL');
+  console.log('----Eg: bitcoin BRL');
   console.log();
   console.log('Use . (dot) for values ​​in currency subunits');
   console.log('----Eg: bitcoin BRL 571.75');
