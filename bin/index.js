@@ -5,7 +5,7 @@ const querystring = require('querystring');
 const arguments = process.argv.splice(2, process.argv.length -1).join(' ')
 const argArray = arguments.split(' ');
 
-const currency = argArray[0];
+const currency = argArray[0].toUpperCase();
 const value = argArray[1];
 
 const translateCurrency = {
@@ -136,7 +136,7 @@ if(translateCurrency[currency.toUpperCase()]){
           console.log('================ Valores da moeda ====================');
           console.log();
           const item = coinsValues[index];
-          console.log(`Moeda: ${translateCurrency[currency]} - Símbolo: ${item.symbol}`);
+          console.log(`Moeda: ${translateCurrency[currency.toUpperCase()]} - Símbolo: ${item.symbol}`);
           console.log('-------');
           console.log(`Última valor registrado: ${item.last}`);
           console.log(`Valor da última venda: ${item.sell}`);
