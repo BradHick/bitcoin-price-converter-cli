@@ -2,6 +2,7 @@
 const https = require('https');
 const showAllCurrencies = require('./show-all-currency');
 const showCurrency = require('./show-currency');
+const convertToBitcoin = require('./convert-to-bitcoin');
 const help = require('./help');
 
 const arguments = process.argv.splice(2, process.argv.length -1).join(' ')
@@ -49,22 +50,7 @@ if(translateCurrency[currency.toUpperCase()]){
   };
 
   if(value >= 0){
-    https
-        .get(`https://blockchain.info/tobtc?currency=${currency}&value=${value}`, function(res){
-          let data = ''
-  
-          res.on('data', function(newData){
-            data += newData
-          });
-  
-          res.on('end', function(){
-            console.log()
-            console.log("\x1b[32m" ,'================ Valor em Bitcoin ====================');
-            console.log(data);
-            console.log('======================================================');
-            console.log()
-          });
-        });
+    return convertToBitcoin(currency, value);
   };
 };
 
