@@ -82,6 +82,9 @@ if(arguments === '--help'){
   console.log('By entering only "bitcoin [Currency]" in the terminal, the details of that currency will be shown');
   console.log('----Ed: bitcoin BRL');
   console.log();
+  console.log('Use . (dot) for values ​​in currency subunits');
+  console.log('----Ed: bitcoin BRL 571.75');
+  console.log();
   console.log('====================================');
   console.log('List of supported currencies: ');
   console.log('USD - Dollar');
