@@ -107,20 +107,22 @@ if(translateCurrency[currency]){
       });
   };
 
-  https
-      .get(`https://blockchain.info/tobtc?currency=${currency}&value=${value}`, function(res){
-        let data = ''
-
-        res.on('data', function(newData){
-          data += newData
+  if(value >= 0){
+    https
+        .get(`https://blockchain.info/tobtc?currency=${currency}&value=${value}`, function(res){
+          let data = ''
+  
+          res.on('data', function(newData){
+            data += newData
+          });
+  
+          res.on('end', function(){
+            console.log()
+            console.log('================ Valor em Bitcoin ====================');
+            console.log(data);
+            console.log('======================================================');
+            console.log()
+          });
         });
-
-        res.on('end', function(){
-          console.log()
-          console.log('================ Valor em Bitcoin ====================');
-          console.log(data);
-          console.log('======================================================');
-          console.log()
-        });
-      });
+  };
 }
