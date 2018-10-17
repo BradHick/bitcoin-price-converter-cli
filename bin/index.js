@@ -67,7 +67,43 @@ if(!arguments){
       });
       console.log();
       console.log('=============================================================================');
-    })
-  })
+    });
+  });
 }
 
+if(translateCurrency[currency]){
+  if(!value){
+    https
+      .get('https://blockchain.info/ticker', function(res){
+        let data = ''
+
+        res.on('data', function(newData){
+          data += newData
+        });
+
+        res.on('end', function(){
+
+          const coins = JSON.parse(data)
+          const coinsKeys = Object.keys(coins);
+          const index = coinsKeys.indexOf(currency);
+          const coinsValues = Object.values(coins);
+
+          const coinsObj = Object.keys(coins).map(i => {
+            return { currency: i, details: coins[i] }
+          });
+
+          console.log('================ Valores da moeda ====================');
+          console.log();
+          const item = coinsValues[index];
+          console.log(`Moeda: ${translateCurrency[currency]} - Símbolo: ${item.symbol}`);
+          console.log('-------');
+          console.log(`Última valor registrado: ${item.last}`);
+          console.log(`Valor da última venda: ${item.sell}`);
+          console.log(`Valor da última compra: ${item.buy}`);
+          console.log('-------');
+          console.log();
+          console.log('=======================================================');
+        });
+      });
+  }
+}
